@@ -65,10 +65,9 @@
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
-                                        <a class="timeline-title" target="_self" href="/2019/04/07/hello-world/">Hello World</a>
+                                        <a class="timeline-title" target="_self" href="/2019/04/07/hello-world/">博客开版</a>
                                         <p>
-                                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
+                                            背景最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复，需要一遍遍的证明自己的专业能力。企业招人时会非常谨慎，通过各种问题不断确认应聘者的技术水平及能力边界。应聘人要准备面试，复习基础知识，同时注重内容的深度和广度，通常需要刷题和看面经。最后谈好的公...
                                         </p>
                                     </div>
                                 </li>
@@ -159,9 +158,6 @@ Qu...
 </script>
 
 
-
-    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
-    <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
@@ -292,6 +288,38 @@ Qu...
     }
 </script>
 
+
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+
+        var valine = new Valine();
+
+        function initValine(path) {
+            if (!path) path = window.location.pathname;
+            let language = 'zh-CN';
+            if (!language) {
+                language = 'en';
+            } else {
+                language = language.toLowerCase();
+            }
+            valine.init({
+                el: '#vcomments',
+                appId: '4zcflHaPy41tmffnE6LlWmHb-gzGzoHsz',
+                appKey: 'Pl9WrqLN35jN4Tr9lD8DvY9p',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'mp',
+                placeholder: 'Leave your throughs behind~',
+                visitor: 'true',
+                path: path,
+                lang: language
+            });
+        }
+
+        $(document).ready(function () {
+            initValine();
+        });
+    </script>
 
 
 
