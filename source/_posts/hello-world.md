@@ -1,38 +1,59 @@
 ---
-title: Hello World
+title: 博客开篇
+date: 2020-03-22
+categories:
+    - 开篇
+tags:
+    - 面试
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+# 背景
+最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复，需要一遍遍的证明自己的专业能力。企业招人时会非常谨慎，通过各种问题不断确认应聘者的技术水平及能力边界。应聘人要准备面试，复习基础知识，同时注重内容的深度和广度，通常需要刷题和看面经。最后谈好的公司，是先看了我的github，对我的专业能力就有了几分了解和把握，面试时双方也聊的很愉快，整个过程非常顺利。
 
-### Create a new post
+# 为什么写博客
+基于以上的经历，写博客主要为了2点。
 
-``` bash
-$ hexo new "My New Post"
-```
+## 记录学习过程和技术积累
+我是转行自学的前端开发，常被问到是怎么学的，学的怎样。写博客可以记录自己的学习过程，分享学习经验。还有新学的技术和工具、踩过的坑，及思考与总结。
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+## 降低人际交往的成本
+博客的记录，可以突破时间空间的限制，供多人多次阅读。读者可以很快的了解我，我也可以认识很多志同道合的朋友。
 
-### Run server
+# 计划写的内容
+以下是计划写的目录，是本次前端面试（一年经验）中，经常问到即必须准备的内容。
 
-``` bash
-$ hexo server
-```
+## CSS
+* flex布局
+* 左中右布局
+* 水平垂直居中布局
 
-More info: [Server](https://hexo.io/docs/server.html)
+## JS
+* 作用域和闭包
+* 执行上下文和this
+* event loop
+* 原型链
+* Promise
 
-### Generate static files
+## 网络
+* HTTP, HTTPS
+* 跨域
+* 缓存
+* cookie, storage
+* 网络安全，XSS和CSRF
 
-``` bash
-$ hexo generate
-```
+## 框架
+* React生命周期
+* React virtual DOM 和 diff算法
+* React Hook
+* Redux VS React state
+* 异步请求，Saga
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+## TypeScript
+* 为什么用TypeScript
+* interface & type
 
-### Deploy to remote sites
+## 性能优化
+* 服务端渲染
 
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+## 更多工具
+* 单元测试
