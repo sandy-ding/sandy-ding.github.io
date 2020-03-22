@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>博客开版 - Hexo</title>
+    <title>博客开篇 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
@@ -43,7 +43,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">博客开版</h3>
+        <h3 class="subtitle">博客开篇</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -73,12 +73,12 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/分类1"><b>「
-                    </b>分类1<b> 」</b></a>
+                <a href="/categories/开篇"><b>「
+                    </b>开篇<b> 」</b></a>
                 
                 三月 22, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/hello-world" title="博客开版">博客开版</a>
+            <h3 class="post-title animated fadeInDown"><a href="/hello-world" title="博客开篇">博客开篇</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
@@ -95,7 +95,7 @@
                 </span>
                 
                 
-                <span id="/hello-world" class="leancloud_visitors" data-flag-title="博客开版">
+                <span id="/hello-world" class="leancloud_visitors" data-flag-title="博客开篇">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -104,7 +104,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/tag1/">标签1</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/tag2/">标签2</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/面试/">面试</a></li></ul>
             
         </div>
     </div>
@@ -203,8 +203,8 @@
                 </div>
                 <ul>
                     <li><a href="/">1 <p>文章</p></a></li>
-                    <li><a href="/categories">2 <p>分类</p></a></li>
-                    <li><a href="/tags">2 <p>标签</p></a></li>
+                    <li><a href="/categories">1 <p>分类</p></a></li>
+                    <li><a href="/tags">1 <p>标签</p></a></li>
                 </ul>
             </div>
             
