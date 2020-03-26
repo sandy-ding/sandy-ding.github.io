@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Tag: 原型链 - Hexo</title>
+    <title>JS中Object和Function的关系 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    
+    <meta name="description" content="数据类型上JavaScript中除了基本类型以外，就是Object类型，它可以简单理解成“名称-值”对。从数据类型上看，而Function是一种特殊的Object类型，可以用()来调用。
+函数角度上,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -36,134 +37,78 @@
     </div>
     <span id="config-title" style="display:none">Hexo</span>
     <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
-        
-        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami/" title="ABOUT">ABOUT</a>
-        </li>
-        
-        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
-        </li>
-        
-        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/tags/" title="TAGS">TAGS</a>
-        </li>
-        
-        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
-        </li>
-        
-    </ul>
-    <p class="copyright" id="copyright">
-        &copy; 2020 Sandy Ding.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
-    </p>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">JS中Object和Function的关系</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="container">
-    
-<div class="search-box">
-    <form class="site-search-form">
-        <span class="iconfont icon-search"></span>
-        <input type="text" id="local-search-input" class="st-search-input" />
-        <div class="iconfont icon-cross search-box-close"></div>
-    </form>
-    <div class="search-scrollable">
-        <div id="local-search-result" class="local-search-result-cls" data-initialise="首次搜索，正在载入索引文件，请稍后……"
-            data-start="输入关键词搜索。" data-empty="没有找到内容，请尝试更换检索词。">
-            <span>输入关键词搜索。</span>
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg) ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
+                
+                三月 26, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/03/26/Relationships-between-Object-and-Function-in-JS/" title="JS中Object和Function的关系">JS中Object和Function的关系</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    2.2k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    4 mins.
+                </span>
+                
+                
+                <span id="/2020/03/26/Relationships-between-Object-and-Function-in-JS/" class="leancloud_visitors" data-flag-title="JS中Object和Function的关系">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Function/">Function</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Object/">Object</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
+            
         </div>
     </div>
-</div>
-<div id="header">
-    <div>
-        <div class="logo animated fadeInDown">
-            <img src="/img/favicon.png" alt="">
-            <a class="image-logo" href="/"></a>
-        </div>
-        <ul id="menu-menu" class="menu text-menu">
-            
-            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/whoami/" title="ABOUT" class="menu-link">ABOUT</a>
-            </li>
-            
-            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
-            </li>
-            
-            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
-            </li>
-            
-            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
-            </li>
-            
-            
-        </ul>
-        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
-    </div>
-</div>
-<div id="screen">
-    <div id="mark">
-        <div class="cover animated fadeIn" style="
-            animation-delay: 900ms;
-            animation-duration: 2.8s;
-            background-image:
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
-                url(/img/cover.jpg);">
-        </div>
-    </div>
-    
-    <div id="post0" class="else">
-        <p class="animated fadeInDown">
-            
-            <a href="/categories/前端"><b>「
-                </b>前端<b> 」</b></a>
-            
-            三月 26, 2020
-        </p>
-        <h3 class="post-title animated fadeInDown">
-            <a href="/2020/03/26/Relationships-between-Object-and-Function-in-JS/" title="JS中Object和Function的关系" class="posttitle">JS中Object和Function的关系</a></h3>
-        
-        <p class="post-count animated fadeInDown">
-            
-            <span>
-                <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                2.2k
-            </span>
-            
-            
-            <span>
-                <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                4 mins.
-            </span>
-            
-            
-            <span id="/2020/03/26/Relationships-between-Object-and-Function-in-JS/" class="leancloud_visitors" data-flag-title="">
-                <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                <span class="leancloud-visitors-count">1000000</span>
-            </span>
-            
-        </p>
-        
-        
-        <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Function/">Function</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Object/">Object</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
-        
-        <div class="md-content animated fadeIn">
-            
-            <p>JavaScript中除了基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，可以用<code>()</code>来调用。</p>
-<blockquote>
-<p><code>prototype</code>就...</p></blockquote>
-            
-            <span class="read-more"><a href="/2020/03/26/Relationships-between-Object-and-Function-in-JS/" title="查看全文" class="posttitle">查看全文</a>
-                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-    
 </div>
 
 <div class="screen-gradient-after">
@@ -171,81 +116,86 @@
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="typed-text"></span>
+                    <span class="animated fadeIn delay-1s"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-    <div id="primary">
-        
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="/categories/前端">
-                  <b>「 </b>前端<b> 」</b>
-                </a>
-            
-            三月 25, 2020
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2020/03/25/JavaScript-prototype-chain/" title="JavaScript原型链" class="posttitle">JavaScript原型链</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                        3.7k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                        7 mins.
-                    </span>
-                
-                
-                    <span id="/2020/03/25/JavaScript-prototype-chain/" class="leancloud_visitors" data-flag-title="">
-                        <b class="iconfont icon-read"></b> <i>阅读次数</i>
-                        <span class="leancloud-visitors-count">1000000</span>
-                    </span>
-                
-            </p>
-            
-                <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>JavaScript是通过原型链实现继承的。虽然<code>ES6</code>引入了<code>class</code>关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。</p>
-<ul>
-<li>在JavaScript中，每个函数都有<code>prototype</code>属性，<code>prototype</code>对象有一个默认的<code>constructor</code>属性指回这个函数。</li>
-<li>每个对象（除<code>null</code>外）都会有<code>__proto__</code>私有属性。</li>
-<li><code>实例对象的__proto__指向其构造函数的prototype</code>（划重点!!!），由此实现继承。</li>
-</ul>
-<pre><code class="JavaScript">function Foo() {
-}
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h1 id="数据类型上"><a href="#数据类型上" class="headerlink" title="数据类型上"></a>数据类型上</h1><p>JavaScript中除了基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，可以用<code>()</code>来调用。</p>
+<h1 id="函数角度上"><a href="#函数角度上" class="headerlink" title="函数角度上"></a>函数角度上</h1><blockquote>
+<p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都是构造函数Object的实例对象</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
+</blockquote>
+<p>由上可知，<code>Function.prototype.__proto__</code>也指向<code>Object.prototype</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
+<p>我们调用<code>new Object()</code>，生成新的对象实例，所以<code>Object</code>是一个构造函数。<code>在JavaScript中，所有函数都继承自Function</code>，都是由<code>Function</code>生成的实例，所以<code>Object.__proto__</code>指向<code>Function.prototype</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
+<h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><code>作为数据类型，Function是一种特殊的Object类型</code>。<br><code>从函数角度看，Object函数是Function的实例对象。Function.prototype对象是Object的实例对象。</code></p>
+<p>最后，是时候祭出JS原型链终极的图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
+<h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://medium.com/@ivanilic/relationships-between-objects-in-js-335bdc4f402b" target="_blank" rel="noopener">Relationships between objects in JS</a><br><a href="https://stackoverflow.com/questions/54861385/is-object-a-function-in-javascript" target="_blank" rel="noopener">Is Object a function in JavaScript?</a><br><a href="https://segmentfault.com/q/1010000002736664" target="_blank" rel="noopener">js 原型的问题 Object 和 Function 到底是什么关系？</a></p>
 
-var...</code></pre>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
             
-            <span class="read-more"><a href="/2020/03/25/JavaScript-prototype-chain/" title="查看全文" class="posttitle">查看全文</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>Sandy Ding</p>
+                    <span>Think like an artist, develop like an artisan</span>
+                    <dl>
+                        <dd><a href="https://github.com/sandy-ding" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://sandy-ding.github.io" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://sandy-ding.github.io" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">3 <p>文章</p></a></li>
+                    <li><a href="/categories">3 <p>分类</p></a></li>
+                    <li><a href="/tags">6 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型上"><span class="toc-number">1.</span> <span class="toc-text">数据类型上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数角度上"><span class="toc-number">2.</span> <span class="toc-text">函数角度上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论："><span class="toc-number">3.</span> <span class="toc-text">结论：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">4.</span> <span class="toc-text">参考链接：</span></a></li></ol>
+                </div>
+            </div>
+            
+            
         </div>
     </div>
 </div>
 
-
     </div>
-    
 </div>
-<div id="preview"></div>
-
-
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>
