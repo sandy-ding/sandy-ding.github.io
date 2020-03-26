@@ -11,8 +11,8 @@
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
     <meta name="description" content="JavaScript是通过原型链实现继承的。在ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。
-原型链
-在JavaScript中，每,"> 
+原型链什么是原型链
+在JavaScr,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -128,7 +128,7 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <p>JavaScript是通过原型链实现继承的。在<code>ES6</code>中引入了<code>class</code>关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。</p>
-<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><ul>
+<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><h2 id="什么是原型链"><a href="#什么是原型链" class="headerlink" title="什么是原型链"></a>什么是原型链</h2><ul>
 <li>在JavaScript中，每个函数都有<code>prototype</code>属性，<code>prototype</code>对象有一个默认的<code>constructor</code>属性指回这个函数。</li>
 <li>每个对象（除<code>null</code>外）都会有<code>__proto__</code>私有属性。</li>
 <li><code>实例对象的__proto__指向其构造函数的prototype</code>（划重点!!!），由此实现继承。</li>
@@ -154,7 +154,7 @@ Foo.prototype = {
 // 应该这样写，因为prototype里还有constructor、__proto__等属性
 Foo.prototype.age = 10;
 </code></pre>
-<h2 id="有意思的是"><a href="#有意思的是" class="headerlink" title="有意思的是"></a>有意思的是</h2><p>定义在构造函数<code>prototype</code>上的属性，会被所有实例对象继承，但是构造函数上没有此属性，因为查找属性只会沿着<code>__proto__</code>找。</p>
+<h2 id="有意思的是"><a href="#有意思的是" class="headerlink" title="有意思的是"></a>有意思的是</h2><p>定义在构造函数<code>prototype</code>上的属性，会被所有实例对象继承，但是构造函数上却没有此属性，因为查找属性只会沿着<code>__proto__</code>找。</p>
 <pre><code class="JavaScript">Foo.prototype.age = 10;
 
 // f1上找不到，会接着找f1.__proto__，即Foo.prototype
@@ -233,7 +233,7 @@ f1.name  // Tom
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#要注意的是"><span class="toc-number">1.1.</span> <span class="toc-text">要注意的是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有意思的是"><span class="toc-number">1.2.</span> <span class="toc-text">有意思的是</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new做了什么"><span class="toc-number">2.</span> <span class="toc-text">new做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性遮蔽"><span class="toc-number">3.</span> <span class="toc-text">属性遮蔽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-create"><span class="toc-number">4.</span> <span class="toc-text">Object.create</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是原型链"><span class="toc-number">1.1.</span> <span class="toc-text">什么是原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要注意的是"><span class="toc-number">1.2.</span> <span class="toc-text">要注意的是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有意思的是"><span class="toc-number">1.3.</span> <span class="toc-text">有意思的是</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new做了什么"><span class="toc-number">2.</span> <span class="toc-text">new做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性遮蔽"><span class="toc-number">3.</span> <span class="toc-text">属性遮蔽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-create"><span class="toc-number">4.</span> <span class="toc-text">Object.create</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
                 </div>
             </div>
             
