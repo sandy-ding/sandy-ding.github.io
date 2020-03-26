@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="JavaScript是通过原型链实现继承的，本文将会深入介绍原型链。
+    <meta name="description" content="JavaScript是通过原型链实现继承的。在ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。
 原型链
-在JavaScript中，每个函数都有prototype属性，prototype对象有一个constructor属性指回,"> 
+在JavaScript中，每,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -87,13 +87,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.5k
+                    3.7k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    5 mins.
+                    7 mins.
                 </span>
                 
                 
@@ -127,31 +127,60 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>JavaScript是通过原型链实现继承的，本文将会深入介绍原型链。</p>
+            <p>JavaScript是通过原型链实现继承的。在<code>ES6</code>中引入了<code>class</code>关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。</p>
 <h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><ul>
-<li>在JavaScript中，每个函数都有<code>prototype</code>属性，<code>prototype</code>对象有一个<code>constructor</code>属性指回这个函数。</li>
-<li>每个对象（除<code>null</code>外）都会有<code>__proto__</code>属性。</li>
-<li><code>实例对象的__proto__指向其构造函数的prototype</code>，由此实现继承。</li>
+<li>在JavaScript中，每个函数都有<code>prototype</code>属性，<code>prototype</code>对象有一个默认的<code>constructor</code>属性指回这个函数。</li>
+<li>每个对象（除<code>null</code>外）都会有<code>__proto__</code>私有属性。</li>
+<li><code>实例对象的__proto__指向其构造函数的prototype</code>（划重点!!!），由此实现继承。</li>
 </ul>
 <pre><code class="JavaScript">function Foo() {
 }
 
-let f1 = new Foo();
+var f1 = new Foo();
 
-console.log(f1.__proto__ === Foo.prototype);   //true
+f1.__proto__ === Foo.prototype;   //true
 </code></pre>
-<p>通过<code>new</code>操作符作用于普通函数时，此函数就是构造函数，生成了实例对象。 以上代码中，<code>f1</code>是由<code>Foo</code>生成的实例，原型关系如下图。</p>
+<p>通过<code>new</code>操作符作用于普通函数时，此函数就是构造函数，生成了实例对象。 以上代码中，<code>f1</code>是由<code>Foo</code>生成的实例，它们的原型关系如下图。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200325223328.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
-<p>Q：<code>Foo.prototype</code>的<code>__proto__</code>指向什么呢？<br>A：<code>prototype</code>就是一个普通的对象。所有JavaScript中的对象（除<code>null</code>外）都是位于原型链顶端的<code>Object</code>构造函数的实例，它的<code>__proto__</code>就指向<code>Object.prototype</code>。再往上找，<code>Object.prototype.__proto__</code>为<code>null</code>，<code>null</code>没有原型。</p>
+<p>Q：<code>Foo.prototype</code>又继承自什么呢？<br>A：<code>prototype</code>就是一个普通的对象。所有JavaScript中的对象（除<code>null</code>外）都是构造函数<code>Object</code>的实例对象，它的<code>__proto__</code>就指向<code>Object.prototype</code>。再往上找，<code>Object.prototype.__proto__</code>为<code>null</code>，而<code>null</code>没有原型。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200325235155.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
-<p>沿着<code>__proto__</code>属性一直向上，直到<code>null</code>，这就是整条<code>原型链</code>。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会沿着原型链一直找下去，直到找到一个名字匹配的属性，或找到原型链的终点也没找到。沿着原型链向上找某个属性，先找到就会返回结果，因此会遮蔽更深层的同名属性，这就叫<code>属性遮蔽</code>。</p>
-<h1 id="new"><a href="#new" class="headerlink" title="new"></a>new</h1><pre><code class="JavaScript">function Foo() {
+<p>沿着上图中的虚线箭头，按<code>__proto__</code>属性一直走到<code>null</code>，这就是整条<code>原型链</code>。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会沿着原型链一直找下去，直到找到一个名字匹配的属性，或找到原型链的终点也没找到。</p>
+<h2 id="要注意的是"><a href="#要注意的是" class="headerlink" title="要注意的是"></a>要注意的是</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型，这将会打破原型链。这样写的<code>prototype</code>会丢失<code>constructor、__proto__</code>等默认属性。</p>
+<pre><code class="JavaScript">// 不能这样写，将打破原型链
+Foo.prototype = {
+    age: 10;
+};
+
+// 应该这样写，因为prototype里还有constructor、__proto__等属性
+Foo.prototype.age = 10;
+</code></pre>
+<h2 id="有意思的是"><a href="#有意思的是" class="headerlink" title="有意思的是"></a>有意思的是</h2><p>定义在构造函数<code>prototype</code>上的属性，会被所有实例对象继承，但是构造函数上没有此属性，因为查找属性只会沿着<code>__proto__</code>找。</p>
+<pre><code class="JavaScript">Foo.prototype.age = 10;
+
+// f1上找不到，会接着找f1.__proto__，即Foo.prototype
+f1.age   // 10
+// 原型链只会沿着__proto__找，不会沿着prototype
+Foo.age  // undefined
+</code></pre>
+<h1 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h1><p>使用<code>new</code>创建出实例对象的时候，实际上执行了以下的操作。</p>
+<pre><code class="JavaScript">// 1. 创建一个空对象
+var f1 = new Object();
+// 2. 将空对象的__proto__指向构造函数的prototype
+f1.__proto__ = Foo.prototype;
+// 3. 将构造函数内部this绑定到新创建的空对象
+Foo.call(f1);
+// 4. 如果该函数没有设置返回对象，则返回新创建的对象
+return f1;
+</code></pre>
+<h1 id="属性遮蔽"><a href="#属性遮蔽" class="headerlink" title="属性遮蔽"></a>属性遮蔽</h1><p>沿着原型链向上找某个属性，先找到就会返回结果，因此会遮蔽更深层的同名属性，这就叫<code>属性遮蔽</code>。</p>
+<pre><code class="JavaScript">function Foo() {
     this.name = &quot;Tom&quot;;
 }
 Foo.prototype.name = &quot;Bob&quot;;
 
-let f1 = new Foo();
-console.log(f1.name);   //Tom
+var f1 = new Foo();
+f1.name  // Tom
+// 在f1上已经找到了name，不会接着向上查找原型链
 </code></pre>
 <h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h1><p>使用<code>Object.create</code>方法创建的对象，新对象的原型会指向调用方法时创建的第一个对象。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200326004045.jpg" alt="图片来自Hursh Jain/mollypages.org， 内容有所修改"></p>
@@ -204,7 +233,7 @@ console.log(f1.name);   //Tom
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new"><span class="toc-number">2.</span> <span class="toc-text">new</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-create"><span class="toc-number">3.</span> <span class="toc-text">Object.create</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">4.</span> <span class="toc-text">参考链接：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#要注意的是"><span class="toc-number">1.1.</span> <span class="toc-text">要注意的是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有意思的是"><span class="toc-number">1.2.</span> <span class="toc-text">有意思的是</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new做了什么"><span class="toc-number">2.</span> <span class="toc-text">new做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性遮蔽"><span class="toc-number">3.</span> <span class="toc-text">属性遮蔽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-create"><span class="toc-number">4.</span> <span class="toc-text">Object.create</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
                 </div>
             </div>
             
