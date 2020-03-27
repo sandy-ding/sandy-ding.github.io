@@ -10,8 +10,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="数据类型上JavaScript中除了基本类型以外，就是Object类型，它可以简单理解成“名称-值”对。从数据类型上看，而Function是一种特殊的Object类型，可以用()来调用。
-函数角度上,"> 
+    <meta name="description" content="JavaScript中Object与Function的关系经常让人感到疑惑，希望本文能有助理解。
+数据类型上最新的 ECMAScript 标准定义了 8 种数据类型：
+7种原始类型：
+
+Boolea,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -86,13 +89,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.2k
+                    3.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    4 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -126,16 +129,43 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="数据类型上"><a href="#数据类型上" class="headerlink" title="数据类型上"></a>数据类型上</h1><p>JavaScript中除了基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，可以用<code>()</code>来调用。</p>
+            <p>JavaScript中<code>Object</code>与<code>Function</code>的关系经常让人感到疑惑，希望本文能有助理解。</p>
+<h1 id="数据类型上"><a href="#数据类型上" class="headerlink" title="数据类型上"></a>数据类型上</h1><p>最新的 ECMAScript 标准定义了 8 种数据类型：</p>
+<p>7种原始类型：</p>
+<ul>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol<br>和Object类型：</li>
+<li>Function</li>
+<li>Array</li>
+<li>Date</li>
+<li>RegExp</li>
+</ul>
+<p>JavaScript中除了7种基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，特点是可以用<code>()</code>来调用。</p>
+<pre><code class="JavaScript">function Foo() {
+    var a = 3; // 函数内的代码块，只能在函数内用
+}
+Foo.a = 5;   // 函数也是对象的一种，可以添加属性
+console.log(Foo.a);  // 5，作为对象的属性
+</code></pre>
 <h1 id="函数角度上"><a href="#函数角度上" class="headerlink" title="函数角度上"></a>函数角度上</h1><blockquote>
-<p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都是构造函数Object的实例对象</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
+<p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都继承自Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
 </blockquote>
 <p>由上可知，<code>Function.prototype.__proto__</code>也指向<code>Object.prototype</code>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
 <p>我们调用<code>new Object()</code>，生成新的对象实例，所以<code>Object</code>是一个构造函数。<code>在JavaScript中，所有函数都继承自Function</code>，都是由<code>Function</code>生成的实例，所以<code>Object.__proto__</code>指向<code>Function.prototype</code>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
+<h1 id="存在的先后顺序上"><a href="#存在的先后顺序上" class="headerlink" title="存在的先后顺序上"></a>存在的先后顺序上</h1><ol>
+<li>先有<code>Object.prototype</code>，它是所有对象的根源。<code>Object.prototype</code>只是挂载在<code>Object</code>函数对象上。</li>
+<li>接着<code>Function.prototype</code>继承自<code>Object.prototype</code>。<code>Function.prototype</code>只是挂载在<code>Function</code>函数对象上。</li>
+<li>所有函数，包括<code>Object</code>函数和<code>Function</code>函数继承自<code>Function.prototype</code>。</li>
+</ol>
 <h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><code>作为数据类型，Function是一种特殊的Object类型</code>。<br><code>从函数角度看，Object函数是Function的实例对象。Function.prototype对象是Object的实例对象。</code></p>
-<p>最后，是时候祭出JS原型链终极的图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
+<p>最后，是时候祭出JS原型链的终级图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
 <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://medium.com/@ivanilic/relationships-between-objects-in-js-335bdc4f402b" target="_blank" rel="noopener">Relationships between objects in JS</a><br><a href="https://stackoverflow.com/questions/54861385/is-object-a-function-in-javascript" target="_blank" rel="noopener">Is Object a function in JavaScript?</a><br><a href="https://segmentfault.com/q/1010000002736664" target="_blank" rel="noopener">js 原型的问题 Object 和 Function 到底是什么关系？</a></p>
 
@@ -185,7 +215,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型上"><span class="toc-number">1.</span> <span class="toc-text">数据类型上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数角度上"><span class="toc-number">2.</span> <span class="toc-text">函数角度上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论："><span class="toc-number">3.</span> <span class="toc-text">结论：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">4.</span> <span class="toc-text">参考链接：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型上"><span class="toc-number">1.</span> <span class="toc-text">数据类型上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数角度上"><span class="toc-number">2.</span> <span class="toc-text">函数角度上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存在的先后顺序上"><span class="toc-number">3.</span> <span class="toc-text">存在的先后顺序上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论："><span class="toc-number">4.</span> <span class="toc-text">结论：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
                 </div>
             </div>
             
