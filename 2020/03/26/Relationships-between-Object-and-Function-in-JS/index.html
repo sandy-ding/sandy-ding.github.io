@@ -156,9 +156,9 @@ console.log(Foo.a);  // 5，作为对象的属性
 <p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都继承自Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
 </blockquote>
 <p>由上可知，<code>Function.prototype.__proto__</code>也指向<code>Object.prototype</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
 <p>我们调用<code>new Object()</code>，生成新的对象实例，所以<code>Object</code>是一个构造函数。<code>在JavaScript中，所有函数都继承自Function</code>，都是由<code>Function</code>生成的实例，所以<code>Object.__proto__</code>指向<code>Function.prototype</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
 <h1 id="存在的先后顺序上"><a href="#存在的先后顺序上" class="headerlink" title="存在的先后顺序上"></a>存在的先后顺序上</h1><ol>
 <li>先有<code>Object.prototype</code>，它是所有对象的根源。<code>Object.prototype</code>只是挂载在<code>Object</code>函数对象上。</li>
 <li>接着<code>Function.prototype</code>继承自<code>Object.prototype</code>。<code>Function.prototype</code>只是挂载在<code>Function</code>函数对象上。</li>
@@ -166,7 +166,7 @@ console.log(Foo.a);  // 5，作为对象的属性
 </ol>
 <h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><code>作为数据类型，Function是一种特殊的Object类型</code>。<br><code>从函数角度看，Object函数是Function的实例对象。Function.prototype对象是Object的实例对象。</code></p>
 <p>最后，是时候祭出JS原型链的终级图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
 <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://medium.com/@ivanilic/relationships-between-objects-in-js-335bdc4f402b" target="_blank" rel="noopener">Relationships between objects in JS</a><br><a href="https://stackoverflow.com/questions/54861385/is-object-a-function-in-javascript" target="_blank" rel="noopener">Is Object a function in JavaScript?</a><br><a href="https://segmentfault.com/q/1010000002736664" target="_blank" rel="noopener">js 原型的问题 Object 和 Function 到底是什么关系？</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->

@@ -87,7 +87,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.7k
+                    3.8k
                 </span>
                 
                 
@@ -141,9 +141,9 @@ var f1 = new Foo();
 f1.__proto__ === Foo.prototype;   //true
 </code></pre>
 <p>通过<code>new</code>操作符作用于普通函数时，此函数就是构造函数，生成了实例对象。 以上代码中，<code>f1</code>是由<code>Foo</code>生成的实例，它们的原型关系如下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200325223328.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200325223328.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
 <p>Q：<code>Foo.prototype</code>又继承自什么呢？<br>A：<code>prototype</code>就是一个普通的对象。所有JavaScript中的对象（除<code>null</code>外）最终都继承自<code>Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。再往上找，<code>Object.prototype.__proto__</code>为<code>null</code>，而<code>null</code>没有原型。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200325235155.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200325235155.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
 <p>沿着上图中的虚线箭头，递归查找<code>__proto__</code>属性，直到<code>null</code>，这就是整条<code>原型链</code>。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会沿着原型链一直找下去，直到找到一个名字匹配的属性，或找到原型链的终点也没找到。</p>
 <h2 id="要注意的是"><a href="#要注意的是" class="headerlink" title="要注意的是"></a>要注意的是</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型，这将会打破原型链。这样写的<code>prototype</code>会丢失<code>constructor、__proto__</code>等默认属性。</p>
 <pre><code class="JavaScript">// 不能这样写，将打破原型链
@@ -183,7 +183,7 @@ f1.name  // Tom
 // 在f1上已经找到了name，不会接着向上查找原型链
 </code></pre>
 <h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h1><p>使用<code>Object.create</code>方法创建的对象，新对象的原型会指向调用方法时创建的第一个对象。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/img/20200326004045.jpg" alt="图片来自Hursh Jain/mollypages.org， 内容有所修改"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200326004045.jpg" alt="图片来自Hursh Jain/mollypages.org， 内容有所修改"></p>
 <p><code>Object.create(null)</code>可以创建一个没有原型的对象。</p>
 <h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="noopener">继承与原型链</a><br><a href="http://mollypages.org/tutorials/js.mp" target="_blank" rel="noopener">Javascript Object Layout</a><br><a href="https://github.com/mqyqingfeng/blog/issues/2" target="_blank" rel="noopener">JavaScript深入之从原型到原型链</a></p>
 
