@@ -1,10 +1,12 @@
 ---
 title: 博客开篇
 date: 2020-03-22
+cover: https://source.unsplash.com/y5_mFlLMwJk
 categories:
     - 开篇
 tags:
     - 面试
+    - 前端
 ---
 
 # 背景
