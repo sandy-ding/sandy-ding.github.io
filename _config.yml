@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Sandy's Blog
 subtitle:
 description: 
-keywords:
+keywords: Front-end
 author: Sandy Ding
 language: zh-CN
 timezone:
@@ -15,7 +15,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://sandy-ding.github.io/
 root: /
-permalink: :title
+permalink: :title/
 permalink_defaults:
 
 # Directory
