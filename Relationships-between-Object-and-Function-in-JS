@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>博客开篇 - Hexo</title>
+    <title>JS中Object和Function的关系 - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="背景最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复,"> 
+    <meta name="description" content="JavaScript中Object与Function的关系经常让人感到疑惑，希望本文能有助理解。
+数据类型上最新的 ECMAScript 标准定义了 8 种数据类型：
+7种原始类型：
+
+Boolea,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -43,7 +47,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">博客开篇</h3>
+        <h3 class="subtitle">JS中Object和Function的关系</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -68,34 +72,34 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://source.unsplash.com/y5_mFlLMwJk) ">
+                url(/img/cover.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/开篇"><b>「
-                    </b>开篇<b> 」</b></a>
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
                 
-                三月 22, 2020
+                三月 26, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/hello-world" title="博客开篇">博客开篇</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Relationships-between-Object-and-Function-in-JS" title="JS中Object和Function的关系">JS中Object和Function的关系</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.9k
+                    3.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    4 mins.
+                    6 mins.
                 </span>
                 
                 
-                <span id="/hello-world" class="leancloud_visitors" data-flag-title="博客开篇">
+                <span id="/Relationships-between-Object-and-Function-in-JS" class="leancloud_visitors" data-flag-title="JS中Object和Function的关系">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -104,7 +108,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/面试/">面试</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Function/">Function</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Object/">Object</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
             
         </div>
     </div>
@@ -125,47 +129,45 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复，需要一遍遍的证明自己的专业能力。企业招人时会非常谨慎，通过各种问题不断确认应聘者的技术水平及能力边界。应聘人要准备面试，复习基础知识，同时注重内容的深度和广度，通常需要刷题和看面经。最后谈好的公司，是先看了我的github，对我的专业能力就有了几分了解和把握，面试时双方也聊的很愉快，整个过程非常顺利。</p>
-<h1 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h1><p>基于以上的经历，写博客主要为了2点。</p>
-<h2 id="记录学习过程和技术积累"><a href="#记录学习过程和技术积累" class="headerlink" title="记录学习过程和技术积累"></a>记录学习过程和技术积累</h2><p>我是转行自学的前端开发，常被问到是怎么学的，学的怎样。写博客可以记录自己的学习过程，分享学习经验。还有新学的技术和工具、踩过的坑，及思考与总结。</p>
-<h2 id="降低人际交往的成本"><a href="#降低人际交往的成本" class="headerlink" title="降低人际交往的成本"></a>降低人际交往的成本</h2><p>博客的记录，可以突破时间空间的限制，供多人多次阅读。读者可以很快的了解我，我也可以认识很多志同道合的朋友。</p>
-<h1 id="计划写的内容"><a href="#计划写的内容" class="headerlink" title="计划写的内容"></a>计划写的内容</h1><p>以下是计划写的目录，是本次前端面试（一年经验）中，经常问到即必须准备的内容。</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
-<li>flex布局</li>
-<li>左中右布局</li>
-<li>水平垂直居中布局</li>
+            <p>JavaScript中<code>Object</code>与<code>Function</code>的关系经常让人感到疑惑，希望本文能有助理解。</p>
+<h1 id="数据类型上"><a href="#数据类型上" class="headerlink" title="数据类型上"></a>数据类型上</h1><p>最新的 ECMAScript 标准定义了 8 种数据类型：</p>
+<p>7种原始类型：</p>
+<ul>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>String</li>
+<li>Symbol<br>和Object类型：</li>
+<li>Function</li>
+<li>Array</li>
+<li>Date</li>
+<li>RegExp</li>
 </ul>
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
-<li>作用域和闭包</li>
-<li>执行上下文和this</li>
-<li>event loop</li>
-<li>原型链</li>
-<li>Promise</li>
-</ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
-<li>HTTP, HTTPS</li>
-<li>跨域</li>
-<li>缓存</li>
-<li>cookie, storage</li>
-<li>网络安全，XSS和CSRF</li>
-</ul>
-<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ul>
-<li>React生命周期</li>
-<li>React virtual DOM 和 diff算法</li>
-<li>React Hook</li>
-<li>Redux VS React state</li>
-<li>异步请求，Saga</li>
-</ul>
-<h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><ul>
-<li>为什么用TypeScript</li>
-<li>interface &amp; type</li>
-</ul>
-<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
-<li>服务端渲染</li>
-</ul>
-<h2 id="更多工具"><a href="#更多工具" class="headerlink" title="更多工具"></a>更多工具</h2><ul>
-<li>单元测试</li>
-</ul>
+<p>JavaScript中除了7种基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，特点是可以用<code>()</code>来调用。</p>
+<pre><code class="JavaScript">function Foo() {
+    var a = 3; // 函数内的代码块，只能在函数内用
+}
+Foo.a = 5;   // 函数也是对象的一种，可以添加属性
+console.log(Foo.a);  // 5，作为对象的属性
+</code></pre>
+<h1 id="函数角度上"><a href="#函数角度上" class="headerlink" title="函数角度上"></a>函数角度上</h1><blockquote>
+<p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都继承自Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
+</blockquote>
+<p>由上可知，<code>Function.prototype.__proto__</code>也指向<code>Object.prototype</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
+<p>我们调用<code>new Object()</code>，生成新的对象实例，所以<code>Object</code>是一个构造函数。<code>在JavaScript中，所有函数都继承自Function</code>，都是由<code>Function</code>生成的实例，所以<code>Object.__proto__</code>指向<code>Function.prototype</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
+<h1 id="存在的先后顺序上"><a href="#存在的先后顺序上" class="headerlink" title="存在的先后顺序上"></a>存在的先后顺序上</h1><ol>
+<li>先有<code>Object.prototype</code>，它是所有对象的根源。<code>Object.prototype</code>只是挂载在<code>Object</code>函数对象上。</li>
+<li>接着<code>Function.prototype</code>继承自<code>Object.prototype</code>。<code>Function.prototype</code>只是挂载在<code>Function</code>函数对象上。</li>
+<li>所有函数，包括<code>Object</code>函数和<code>Function</code>函数继承自<code>Function.prototype</code>。</li>
+</ol>
+<h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><code>作为数据类型，Function是一种特殊的Object类型</code>。<br><code>从函数角度看，Object函数是Function的实例对象。Function.prototype对象是Object的实例对象。</code></p>
+<p>最后，是时候祭出JS原型链的终级图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
+<h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://medium.com/@ivanilic/relationships-between-objects-in-js-335bdc4f402b" target="_blank" rel="noopener">Relationships between objects in JS</a><br><a href="https://stackoverflow.com/questions/54861385/is-object-a-function-in-javascript" target="_blank" rel="noopener">Is Object a function in JavaScript?</a><br><a href="https://segmentfault.com/q/1010000002736664" target="_blank" rel="noopener">js 原型的问题 Object 和 Function 到底是什么关系？</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -213,7 +215,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么写博客"><span class="toc-number">2.</span> <span class="toc-text">为什么写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#记录学习过程和技术积累"><span class="toc-number">2.1.</span> <span class="toc-text">记录学习过程和技术积累</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#降低人际交往的成本"><span class="toc-number">2.2.</span> <span class="toc-text">降低人际交往的成本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计划写的内容"><span class="toc-number">3.</span> <span class="toc-text">计划写的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">3.1.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS"><span class="toc-number">3.2.</span> <span class="toc-text">JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-number">3.3.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架"><span class="toc-number">3.4.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript"><span class="toc-number">3.5.</span> <span class="toc-text">TypeScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能优化"><span class="toc-number">3.6.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多工具"><span class="toc-number">3.7.</span> <span class="toc-text">更多工具</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型上"><span class="toc-number">1.</span> <span class="toc-text">数据类型上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数角度上"><span class="toc-number">2.</span> <span class="toc-text">函数角度上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存在的先后顺序上"><span class="toc-number">3.</span> <span class="toc-text">存在的先后顺序上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论："><span class="toc-number">4.</span> <span class="toc-text">结论：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
                 </div>
             </div>
             
