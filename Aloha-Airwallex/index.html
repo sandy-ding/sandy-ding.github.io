@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JavaScript原型链 - Sandy&#39;s Blog</title>
+    <title>Aloha@Airwallex - Sandy&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="JavaScript是通过原型链实现继承的。虽然ES6引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。
-原型链什么是原型链
-在JavaScr,"> 
+    <meta name="description" content="
+Aloha是夏威夷语中的一个词，本有希望、爱、和平及幸福等意思。经过演变，现在可解作Hello, Goodbye, I love you等意思维基百科
+
+在来Airwallex半年前，我就在看零极,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Sandy&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -45,7 +46,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JavaScript原型链</h3>
+        <h3 class="subtitle">Aloha@Airwallex</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -75,29 +76,29 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/前端"><b>「
-                    </b>前端<b> 」</b></a>
+                <a href="/categories/工作"><b>「
+                    </b>工作<b> 」</b></a>
                 
-                三月 25, 2020
+                五月 24, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/JavaScript-prototype-chain" title="JavaScript原型链">JavaScript原型链</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Aloha-Airwallex/" title="Aloha@Airwallex">Aloha@Airwallex</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.8k
+                    1.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    7 mins.
+                    3 mins.
                 </span>
                 
                 
-                <span id="/JavaScript-prototype-chain" class="leancloud_visitors" data-flag-title="JavaScript原型链">
+                <span id="/Aloha-Airwallex/" class="leancloud_visitors" data-flag-title="Aloha@Airwallex">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -106,7 +107,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Airwallex/">Airwallex</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/公司介绍/">公司介绍</a></li></ul>
             
         </div>
     </div>
@@ -127,65 +128,19 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>JavaScript是通过原型链实现继承的。虽然<code>ES6</code>引入了<code>class</code>关键字，但那只是语法糖，JavaScript仍然是基于原型继承的。本文将会深入介绍原型链。</p>
-<h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><h2 id="什么是原型链"><a href="#什么是原型链" class="headerlink" title="什么是原型链"></a>什么是原型链</h2><ul>
-<li>在JavaScript中，每个函数都有<code>prototype</code>属性，<code>prototype</code>对象有一个默认的<code>constructor</code>属性指回这个函数。</li>
-<li>每个对象（除<code>null</code>外）都会有<code>__proto__</code>私有属性。</li>
-<li><code>实例对象的__proto__指向其构造函数的prototype</code>（划重点!!!），由此实现继承。</li>
-</ul>
-<pre><code class="JavaScript">function Foo() {
-}
-
-var f1 = new Foo();
-
-f1.__proto__ === Foo.prototype;   //true
-</code></pre>
-<p>通过<code>new</code>操作符作用于普通函数时，此函数就是构造函数，生成了实例对象。 以上代码中，<code>f1</code>是由<code>Foo</code>生成的实例，它们的原型关系如下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200325223328.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
-<p>Q：<code>Foo.prototype</code>又继承自什么呢？<br>A：<code>prototype</code>就是一个普通的对象。所有JavaScript中的对象（除<code>null</code>外）最终都继承自<code>Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。再往上找，<code>Object.prototype.__proto__</code>为<code>null</code>，而<code>null</code>没有原型。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200325235155.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
-<p>沿着上图中的虚线箭头，递归查找<code>__proto__</code>属性，直到<code>null</code>，这就是整条<code>原型链</code>。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会沿着原型链一直找下去，直到找到一个名字匹配的属性，或找到原型链的终点也没找到。</p>
-<h2 id="要注意的是"><a href="#要注意的是" class="headerlink" title="要注意的是"></a>要注意的是</h2><p>通过原型链实现继承时，不能使用对象字面量创建原型，这将会打破原型链。这样写的<code>prototype</code>会丢失<code>constructor、__proto__</code>等默认属性。</p>
-<pre><code class="JavaScript">// 不能这样写，将打破原型链
-Foo.prototype = {
-    age: 10;
-};
-
-// 应该这样写，因为prototype里还有constructor、__proto__等属性
-Foo.prototype.age = 10;
-</code></pre>
-<h2 id="有意思的是"><a href="#有意思的是" class="headerlink" title="有意思的是"></a>有意思的是</h2><p>定义在构造函数<code>prototype</code>上的属性，会被所有实例对象继承，但是构造函数上却没有此属性，因为查找属性只会沿着<code>__proto__</code>找。</p>
-<pre><code class="JavaScript">Foo.prototype.age = 10;
-
-// f1上找不到，会接着找f1.__proto__，即Foo.prototype
-f1.age   // 10
-// 原型链只会沿着__proto__找，不会沿着prototype
-Foo.age  // undefined
-</code></pre>
-<h1 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h1><p>使用<code>new</code>创建出实例对象的时候，实际上执行了以下的操作。</p>
-<pre><code class="JavaScript">// 1. 创建一个空对象
-var f1 = new Object();
-// 2. 将空对象的__proto__指向构造函数的prototype
-f1.__proto__ = Foo.prototype;
-// 3. 将构造函数内部this绑定到新创建的空对象
-Foo.call(f1);
-// 4. 如果该函数没有设置返回对象，则返回新创建的对象
-return f1;
-</code></pre>
-<h1 id="属性遮蔽"><a href="#属性遮蔽" class="headerlink" title="属性遮蔽"></a>属性遮蔽</h1><p>沿着原型链向上找某个属性，先找到就会返回结果，因此会遮蔽更深层的同名属性，这就叫<code>属性遮蔽</code>。</p>
-<pre><code class="JavaScript">function Foo() {
-    this.name = &quot;Tom&quot;;
-}
-Foo.prototype.name = &quot;Bob&quot;;
-
-var f1 = new Foo();
-f1.name  // Tom
-// 在f1上已经找到了name，不会接着向上查找原型链
-</code></pre>
-<h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h1><p>使用<code>Object.create</code>方法创建的对象，新对象的原型会指向调用方法时创建的第一个对象。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200326004045.jpg" alt="图片来自Hursh Jain/mollypages.org， 内容有所修改"></p>
-<p><code>Object.create(null)</code>可以创建一个没有原型的对象。</p>
-<h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="noopener">继承与原型链</a><br><a href="http://mollypages.org/tutorials/js.mp" target="_blank" rel="noopener">Javascript Object Layout</a><br><a href="https://github.com/mqyqingfeng/blog/issues/2" target="_blank" rel="noopener">JavaScript深入之从原型到原型链</a></p>
+            <blockquote>
+<p><code>Aloha</code>是夏威夷语中的一个词，本有希望、爱、和平及幸福等意思。经过演变，现在可解作Hello, Goodbye, I love you等意思<br>维基百科</p>
+</blockquote>
+<p>在来Airwallex半年前，我就在看零极限系列书，其中介绍了用于疗愈的夏威夷心法。实践方法就是在心中想着清理词：Aloha, Ho’Oponopono, 对不起、请原谅、谢谢你、我爱你，以回到零的状态。</p>
+<p>在投Airwallex前，一直觉得难度挺大的不敢投简历，直到ys推荐，鼓起勇气投了。HR发了我笔试题，要完成一个完整的功能，过了几天，又说tech看了我的Github，免笔试直接面试吧。在去面试的路上，我进行了清理。当天阳光很好，还帮了路人两个忙攒RP。面试过程非常顺利，问的都是之前准备过思考过的内容，答得很好很顺，顺利的拿到了offer。因为手上没有别的offer，就没有和HR argue，不过相比之前996的工时，已经非常满意了。就这样来到了Airwallex。</p>
+<p>第一天，惊人的发现在公司也遇到了Aloha，具体情况就不说了。认识了友好的同事，很多小姐姐。工作环境很温馨，不是一排排的格子间，而是组员围成一圈坐的那种桌子。CEO也在公共空间办公，就坐在我身后😂 休息区有专业咖啡机、餐厅和露天阳台。人手mac、外接显示器、升降台/桌。各个工作流程都有专业的软件，非常高效。如设计与前端用的zeplin，埋点用的GA，监控用的sentry。</p>
+<p>mentor每天教我一点点，关于技术、项目、和公司的事。做的项目都是有真实用户的，上线给主要用户用的，覆盖各平台，如web app, 微信小程序。mentor、PM给我任务的时候，都会把前因后果和做法讲清楚，沟通高效。完成工作后，mentor和PM小哥哥就使劲夸我，让我有点不好意思了。</p>
+<p>公司的产品设计都很有品味，一看就不是国内的设计。设计创始人说想要做出令人心动的设计，让客户收钱时加倍幸福。我在做前端时，也的确发现了让我眼前一亮，怦然心动的设计。组内的设计师小哥哥也是非常专业的，注重用户体验，审美上的细节主义让我更肯定自己没做设计师的决定😂 有了这种品味，各种周边如衣服背包当然也是美美哒。公司的背包，品质、设计、使用体验都是一流，是唯一我会用的背出去很时尚的发来的包。</p>
+<p>公司每周三有各种专业分享，周五有MeetX。MeetX是大家讲述自己、与Airwallex成长的故事，每次会有三个同事分享。大家共同相聚一室，其他site的同事zoom接入。我听到了Airwallex创始的故事，同事周游世界的故事，成长故事如反思自己、学会沟通。每次大家的分享都很真诚，大家会一起探讨思考，对我的启发很大。当有同事离职时，创始人会真诚的感谢他为公司的付出，甚至不舍落泪。</p>
+<p>公司是在金融领域，做跨境支付的，在世界各地都有办公室。我惊异于公司的氛围竟是如此通畅轻松，同事之间如此连结友爱，一切都是如此公开透明。我知道了去年公司遇到过危机差点做不下去，也体验了做成一笔大单时请全员喝奶茶。</p>
+<p>每天中午和饭友吃午饭，办公楼各种优惠发券，经常一顿好吃的20块以下，也是把我惊呆了。正常工时不加班，工作高效，精力充沛，成长飞快，多了很多时间学习充电。mentor觉得我表现优异，一个月就给转正了。TB去周边游，嵊泗莫干山洒洒水。</p>
+<p>在这样的公司工作真是太幸福啦，感谢Aloha吸引着我们相遇。</p>
+<p><code>Aloha@Airwallex</code></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -229,13 +184,6 @@ f1.name  // Tom
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#原型链"><span class="toc-number">1.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是原型链"><span class="toc-number">1.1.</span> <span class="toc-text">什么是原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#要注意的是"><span class="toc-number">1.2.</span> <span class="toc-text">要注意的是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有意思的是"><span class="toc-number">1.3.</span> <span class="toc-text">有意思的是</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new做了什么"><span class="toc-number">2.</span> <span class="toc-text">new做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性遮蔽"><span class="toc-number">3.</span> <span class="toc-text">属性遮蔽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Object-create"><span class="toc-number">4.</span> <span class="toc-text">Object.create</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
-                </div>
-            </div>
             
             
         </div>
