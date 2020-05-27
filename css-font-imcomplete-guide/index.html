@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>博客开篇 - Sandy&#39;s Blog</title>
+    <title>CSS字体不完全指南 - Sandy&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="背景最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复,"> 
+    <meta name="description" content="本文主要介绍Web CSS使用字体的规则, 便于前端和设计理解与沟通 : )
+字体集
+场景: 设计师验收时说这个要什么字体, 这个应该是什么字体. 那前端是要一个个修改指定字体吗?No! 一个全局 ,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Sandy&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -43,7 +45,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">博客开篇</h3>
+        <h3 class="subtitle">CSS字体不完全指南</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -68,34 +70,34 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url(https://source.unsplash.com/y5_mFlLMwJk) ">
+                url(/img/cover.jpg) ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/开篇"><b>「
-                    </b>开篇<b> 」</b></a>
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
                 
-                三月 22, 2020
+                五月 27, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/hello-world/" title="博客开篇">博客开篇</a>
+            <h3 class="post-title animated fadeInDown"><a href="/css-font-imcomplete-guide/" title="CSS字体不完全指南">CSS字体不完全指南</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.9k
+                    3.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    4 mins.
+                    6 mins.
                 </span>
                 
                 
-                <span id="/hello-world/" class="leancloud_visitors" data-flag-title="博客开篇">
+                <span id="/css-font-imcomplete-guide/" class="leancloud_visitors" data-flag-title="CSS字体不完全指南">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -104,7 +106,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/面试/">面试</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Font/">Font</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li></ul>
             
         </div>
     </div>
@@ -125,47 +127,107 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近换工作，发现应聘是件非常耗费企业和个人时间精力的事。双方约好时间，先是一轮笔试或电话面试，再是三轮技术面试，最后是HR面。面一家公司一周能走完这些流程算是非常高效了，面试的内容也有极大的重复，需要一遍遍的证明自己的专业能力。企业招人时会非常谨慎，通过各种问题不断确认应聘者的技术水平及能力边界。应聘人要准备面试，复习基础知识，同时注重内容的深度和广度，通常需要刷题和看面经。最后谈好的公司，是先看了我的github，对我的专业能力就有了几分了解和把握，面试时双方也聊的很愉快，整个过程非常顺利。</p>
-<h1 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h1><p>基于以上的经历，写博客主要为了2点。</p>
-<h2 id="记录学习过程和技术积累"><a href="#记录学习过程和技术积累" class="headerlink" title="记录学习过程和技术积累"></a>记录学习过程和技术积累</h2><p>我是转行自学的前端开发，常被问到是怎么学的，学的怎样。写博客可以记录自己的学习过程，分享学习经验。还有新学的技术和工具、踩过的坑，及思考与总结。</p>
-<h2 id="降低人际交往的成本"><a href="#降低人际交往的成本" class="headerlink" title="降低人际交往的成本"></a>降低人际交往的成本</h2><p>博客的记录，可以突破时间空间的限制，供多人多次阅读。读者可以很快的了解我，我也可以认识很多志同道合的朋友。</p>
-<h1 id="计划写的内容"><a href="#计划写的内容" class="headerlink" title="计划写的内容"></a>计划写的内容</h1><p>以下是计划写的目录，是本次前端面试（一年经验）中，经常问到即必须准备的内容。</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ul>
-<li>flex布局</li>
-<li>左中右布局</li>
-<li>水平垂直居中布局</li>
+            <p>本文主要介绍Web CSS使用字体的规则, 便于前端和设计理解与沟通 : )</p>
+<h1 id="字体集"><a href="#字体集" class="headerlink" title="字体集"></a>字体集</h1><blockquote>
+<p>场景: 设计师验收时说这个要什么字体, 这个应该是什么字体. 那前端是要一个个修改指定字体吗?<br><br>No! 一个全局 font-family 就搞定了.</p>
+</blockquote>
+<p>全局设置<code>font-family</code>可以为整个项目指定一系列适配字体.<br>按先英文字体后中文字体的顺序, 就会按照<code>优先匹配原则</code>选用中英文字体.<br>按此顺序, 遇到英文时会先匹配到英文字体, 遇到中文时因为英文字体中大多数不包含中文, 就会依次往后匹配中文字体.</p>
+<p>最后举个栗子，英文、数字用自选字体<code>lucida</code>, 中文在苹果系统用苹方<code>PingFang SC</code>, windows系统用的微软雅黑<code>Microsoft YaHei</code>，然后是其他系统的黑体<code>SimHei</code>，最后当所有的字体都找不到时，使用非衬线字体族<code>sans-serif</code>作为操作系统最后选择字体的方向。</p>
+<pre><code class="JavaScript">// 字体集
+font-family: AxFFDIN, Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Microsoft YaHei&#39;, SimHei, sans-serif;
+
+//解释
+font-family: lucida  // 英文字体 自选字体, 可通过@font-face指定在线字体
+                       Helvetica  // 英文字体 苹果系统自带
+                       Arial  // 英文字体 其他系统
+                       &#39;PingFang SC&#39;  // 中文字体 苹果系统自带
+                       &#39;Microsoft YaHei&#39;  // 中文字体 windows系统 和其他有微软雅黑的系统
+                       SimHei  // 中文字体 其他系统
+                       sans-serif;  // 最终fallback, 无衬线字体 字体族名称
+</code></pre>
+<p>注意苹方字体可以写作<code>PingFang SC</code>或<code>PingFangSC-Regular</code>，但如果误写成了<code>PingFangSC</code>，在safari的效果是这样的:(</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200527221304.jpg" alt></p>
+<h1 id="字重"><a href="#字重" class="headerlink" title="字重"></a>字重</h1><blockquote>
+<p>场景: 设计师验收时说这个字体是粗体, 设计稿上是 PingFangSC-Medium, 这时前端将字体改成苹方字体中的Medium对吗?<br><br>No!按照之前font-family介绍中的匹配原则, 可能用户系统没有苹方字体, 更别说某个Medium了, 这里应该用到的是font-weight字重属性.</p>
+</blockquote>
+<p>CSS<code>font-weight</code>属性值有两种, 数值和名称, 数值为 100~900 的 9 种, 与名称大致对应.<br>很少存在一种字体有 9 个字重, 完全匹配 CSS 字重属性的 通常字体拥有的字重数量为 4~6 个, 不过 400 (normal) 和 700 (bold)基本上是必备的.</p>
+<p>没有对应字重时, 字体匹配规则如下:</p>
+<ul>
+<li>字重小于 400 的, 会先降序匹配, 找不到再升序匹配</li>
+<li>字重大于 500 的, 会先升序匹配, 找不到再降序匹配</li>
+<li>字重 400, 500 的会优先互相匹配, 再按第一条规则匹配</li>
 </ul>
-<h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><ul>
-<li>作用域和闭包</li>
-<li>执行上下文和this</li>
-<li>event loop</li>
-<li>原型链</li>
-<li>Promise</li>
-</ul>
-<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
-<li>HTTP, HTTPS</li>
-<li>跨域</li>
-<li>缓存</li>
-<li>cookie, storage</li>
-<li>网络安全，XSS和CSRF</li>
-</ul>
-<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><ul>
-<li>React生命周期</li>
-<li>React virtual DOM 和 diff算法</li>
-<li>React Hook</li>
-<li>Redux VS React state</li>
-<li>异步请求，Saga</li>
-</ul>
-<h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><ul>
-<li>为什么用TypeScript</li>
-<li>interface &amp; type</li>
-</ul>
-<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><ul>
-<li>服务端渲染</li>
-</ul>
-<h2 id="更多工具"><a href="#更多工具" class="headerlink" title="更多工具"></a>更多工具</h2><ul>
-<li>单元测试</li>
-</ul>
+<p>这也就是有时候改变 CSS 字重属性, 字体看起来却没变的原因. CSS字重属性最终还是要匹配到字体的某个字重的</p>
+<p>推荐使用 CSS 字重的数值, 而不是指定具体字重的字体, 如<code>PingFangSC-Medium</code>, 这样就可以在前面匹配一套字体集的基础上匹配字重</p>
+<table>
+<thead>
+<tr>
+<th>数值</th>
+<th>名称</th>
+<th>Helvetica Neue</th>
+<th>PingFang SC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Thin</td>
+<td>HelveticaNeue-UltraLight</td>
+<td>PingFangSC-Ultralight</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Extra Light (Ultra Light)</td>
+<td>HelveticaNeue-Thin</td>
+<td>PingFangSC-Thin</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Light</td>
+<td>HelveticaNeue-Light</td>
+<td>PingFangSC-Light</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Normal</td>
+<td>HelveticaNeue-Regular</td>
+<td>PingFangSC-Regular</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Medium</td>
+<td>HelveticaNeue-Medium</td>
+<td>PingFangSC-Medium</td>
+</tr>
+<tr>
+<td>600</td>
+<td>Semi Bold (Demi Bold)</td>
+<td>-</td>
+<td>PingFangSC-Semibold</td>
+</tr>
+<tr>
+<td>700</td>
+<td>Bold</td>
+<td>HelveticaNeue-Bold</td>
+<td>-</td>
+</tr>
+<tr>
+<td>800</td>
+<td>Extra Bold (Ultra Bold)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Black (Heavy)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<center>字重数值、名称与两款常见字体的对应关系</center>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://segmentfault.com/a/1190000006110417" target="_blank" rel="noopener">如何优雅的选择字体</a><br><a href="https://keqingrong.github.io/blog/2019-06-11-font-weight" target="_blank" rel="noopener">字重</a><br><a href="https://aotu.io/notes/2016/11/08/css3fontweight/index.html" target="_blank" rel="noopener">深入了解 font-weight</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -213,7 +275,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么写博客"><span class="toc-number">2.</span> <span class="toc-text">为什么写博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#记录学习过程和技术积累"><span class="toc-number">2.1.</span> <span class="toc-text">记录学习过程和技术积累</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#降低人际交往的成本"><span class="toc-number">2.2.</span> <span class="toc-text">降低人际交往的成本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#计划写的内容"><span class="toc-number">3.</span> <span class="toc-text">计划写的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS"><span class="toc-number">3.1.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS"><span class="toc-number">3.2.</span> <span class="toc-text">JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-number">3.3.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#框架"><span class="toc-number">3.4.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript"><span class="toc-number">3.5.</span> <span class="toc-text">TypeScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能优化"><span class="toc-number">3.6.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多工具"><span class="toc-number">3.7.</span> <span class="toc-text">更多工具</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字体集"><span class="toc-number">1.</span> <span class="toc-text">字体集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字重"><span class="toc-number">2.</span> <span class="toc-text">字重</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                 </div>
             </div>
             
