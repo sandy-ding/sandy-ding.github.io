@@ -10,7 +10,7 @@ tags:
   - Font
 ---
 
-本文主要介绍网页 CSS 使用字体的规则, 便于前端和设计理解与沟通 : )
+本文主要介绍Web CSS使用字体的规则, 便于前端和设计理解与沟通 : )
 
 # 字体集
 
@@ -18,27 +18,32 @@ tags:
 > No! 一个全局 font-family 就搞定了.
 
 全局设置`font-family`可以为整个项目指定一系列适配字体.
-按先英文字体后中文字体的顺序, 就会按照优先匹配原则选用中英文字体.
+按先英文字体后中文字体的顺序, 就会按照`优先匹配原则`选用中英文字体.
 按此顺序, 遇到英文时会先匹配到英文字体, 遇到中文时因为英文字体中大多数不包含中文, 就会依次往后匹配中文字体.
 
-⚠️ 现在设计的使用规则是, 英文、数字用自选字体 FFDIN, 中文有苹果系统有的 PingFang SC (注意中间有空格), 建议可以再定一个其他系统用的中文字体
+最后举个栗子，英文、数字用自选字体`lucida`, 中文在苹果系统用苹方`PingFang SC`, windows系统用的微软雅黑`Microsoft YaHei`，然后是其他系统的黑体`SimHei`，最后当所有的字体都找不到时，使用非衬线字体族`sans-serif`作为操作系统最后选择字体的方向。
 
 ```JavaScript
 // 字体集
-font-family: AxFFDIN, Helvetica, Arial, 'PingFang SC', sans-serif;
+font-family: AxFFDIN, Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', SimHei, sans-serif;
 
 //解释
-font-family: AxFFDIN // 英文字体 自选字体, 通过@font-face指定在线字体
-                       Helvetica // 英文字体 苹果系统自带
+font-family: lucida  // 英文字体 自选字体, 可通过@font-face指定在线字体
+                       Helvetica  // 英文字体 苹果系统自带
                        Arial  // 英文字体 其他系统
-                       'PingFang SC' // 中文字体 苹果系统自带 缺少其他系统的中文字体
+                       'PingFang SC'  // 中文字体 苹果系统自带
+                       'Microsoft YaHei'  // 中文字体 windows系统 和其他有微软雅黑的系统
+                       SimHei  // 中文字体 其他系统
                        sans-serif;  // 最终fallback, 无衬线字体 字体族名称
 ```
+注意苹方字体可以写作`PingFang SC`或`PingFangSC-Regular`，但如果误写成了`PingFangSC`，在safari的效果是这样的:(
+
+![](https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200527221304.jpg)
 
 # 字重
 
-> 场景: 设计师验收时说这个字体是粗体, 设计稿上是 PingFangSC-Medium, 这时前端将字体改成苹方字体中的 medium 对吗?<br>
-> No!按照之前 font-family 介绍中的匹配原则, 可能用户系统没有苹方字体, 更别说某个 Medium 了, 这里应该用到的是 font-weight 字重.
+> 场景: 设计师验收时说这个字体是粗体, 设计稿上是 PingFangSC-Medium, 这时前端将字体改成苹方字体中的Medium对吗?<br>
+> No!按照之前font-family介绍中的匹配原则, 可能用户系统没有苹方字体, 更别说某个Medium了, 这里应该用到的是font-weight字重属性.
 
 CSS`font-weight`属性值有两种, 数值和名称, 数值为 100~900 的 9 种, 与名称大致对应.
 很少存在一种字体有 9 个字重, 完全匹配 CSS 字重属性的 通常字体拥有的字重数量为 4~6 个, 不过 400 (normal) 和 700 (bold)基本上是必备的.
@@ -46,11 +51,11 @@ CSS`font-weight`属性值有两种, 数值和名称, 数值为 100~900 的 9 种
 没有对应字重时, 字体匹配规则如下:
 - 字重小于 400 的, 会先降序匹配, 找不到再升序匹配
 - 字重大于 500 的, 会先升序匹配, 找不到再降序匹配
-- 字重 400, 500 的会优先互相匹配, 再执行第一条规则
+- 字重 400, 500 的会优先互相匹配, 再按第一条规则匹配
 
-这也就是有时候改变 CSS 字重属性, 字体看起来却没变的原因. CSS 字重属性最终还是要匹配到字体的字重的
+这也就是有时候改变 CSS 字重属性, 字体看起来却没变的原因. CSS字重属性最终还是要匹配到字体的某个字重的
 
-insight: 推荐使用 CSS 字重的数值, 而不是指定具体字重的字体, 如:PingFangSC-Medium, 这样就可以在匹配一套字体集的基础上匹配字重
+推荐使用 CSS 字重的数值, 而不是指定具体字重的字体, 如`PingFangSC-Medium`, 这样就可以在前面匹配一套字体集的基础上匹配字重
 
 | 数值 | 名称                      | Helvetica Neue           | PingFang SC           |
 | -- | -- | ----------- | ----------- |
