@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>托福在家考 - Sandy&#39;s Blog</title>
+    <title>CSS字体不完全指南 - Sandy&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="因为疫情，ETS开放了托福和GRE在家考试，我在职复习了两个月首考101，分享下经验。本人英语基础较好，之前大三考雅思总分7.5。
-报名流程我是参考无老师报名教程。
-需要注意的点有：
-
-此系统是在中,"> 
+    <meta name="description" content="本文主要介绍Web CSS使用字体的规则, 便于前端和设计理解与沟通 : )
+字体集
+场景: 设计师验收时说这个要什么字体, 这个应该是什么字体. 那前端是要一个个修改指定字体吗?No! 一个全局 ,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Sandy&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -47,7 +45,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">托福在家考</h3>
+        <h3 class="subtitle">CSS字体不完全指南</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -77,29 +75,29 @@
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/英语"><b>「
-                    </b>英语<b> 」</b></a>
+                <a href="/categories/前端"><b>「
+                    </b>前端<b> 」</b></a>
                 
-                六月 15, 2020
+                五月 27, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/toefl-at-home-test/" title="托福在家考">托福在家考</a>
+            <h3 class="post-title animated fadeInDown"><a href="/css-font-imcomplete-guide/" title="CSS字体不完全指南">CSS字体不完全指南</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    2.7k
+                    3.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    5 mins.
+                    6 mins.
                 </span>
                 
                 
-                <span id="/toefl-at-home-test/" class="leancloud_visitors" data-flag-title="托福在家考">
+                <span id="/css-font-imcomplete-guide/" class="leancloud_visitors" data-flag-title="CSS字体不完全指南">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -108,7 +106,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/在家考/">在家考</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/托福/">托福</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Font/">Font</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li></ul>
             
         </div>
     </div>
@@ -129,35 +127,107 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>因为疫情，ETS开放了托福和GRE在家考试，我在职复习了两个月首考101，分享下经验。本人英语基础较好，之前大三考雅思总分7.5。</p>
-<h1 id="报名流程"><a href="#报名流程" class="headerlink" title="报名流程"></a>报名流程</h1><p>我是参考<a href="https://www.wulaoshi.com/archives/16541.html" target="_blank" rel="noopener">无老师报名教程</a>。</p>
-<p>需要注意的点有：</p>
+            <p>本文主要介绍Web CSS使用字体的规则, 便于前端和设计理解与沟通 : )</p>
+<h1 id="字体集"><a href="#字体集" class="headerlink" title="字体集"></a>字体集</h1><blockquote>
+<p>场景: 设计师验收时说这个要什么字体, 这个应该是什么字体. 那前端是要一个个修改指定字体吗?<br><br>No! 一个全局 font-family 就搞定了.</p>
+</blockquote>
+<p>全局设置<code>font-family</code>可以为整个项目指定一系列适配字体.<br>按先英文字体后中文字体的顺序, 就会按照<code>优先匹配原则</code>选用中英文字体.<br>按此顺序, 遇到英文时会先匹配到英文字体, 遇到中文时因为英文字体中大多数不包含中文, 就会依次往后匹配中文字体.</p>
+<p>最后举个栗子，英文、数字用自选字体<code>lucida</code>, 中文在苹果系统用苹方<code>PingFang SC</code>, windows系统用的微软雅黑<code>Microsoft YaHei</code>，然后是其他系统的黑体<code>SimHei</code>，最后当所有的字体都找不到时，使用非衬线字体族<code>sans-serif</code>作为操作系统最后选择字体的方向。</p>
+<pre><code class="JavaScript">// 字体集
+font-family: AxFFDIN, Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Microsoft YaHei&#39;, SimHei, sans-serif;
+
+//解释
+font-family: lucida  // 英文字体 自选字体, 可通过@font-face指定在线字体
+                       Helvetica  // 英文字体 苹果系统自带
+                       Arial  // 英文字体 其他系统
+                       &#39;PingFang SC&#39;  // 中文字体 苹果系统自带
+                       &#39;Microsoft YaHei&#39;  // 中文字体 windows系统 和其他有微软雅黑的系统
+                       SimHei  // 中文字体 其他系统
+                       sans-serif;  // 最终fallback, 无衬线字体 字体族名称
+</code></pre>
+<p>注意苹方字体可以写作<code>PingFang SC</code>或<code>PingFangSC-Regular</code>，但如果误写成了<code>PingFangSC</code>，在safari的效果是这样的:(</p>
+<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200527221304.jpg" alt></p>
+<h1 id="字重"><a href="#字重" class="headerlink" title="字重"></a>字重</h1><blockquote>
+<p>场景: 设计师验收时说这个字体是粗体, 设计稿上是 PingFangSC-Medium, 这时前端将字体改成苹方字体中的Medium对吗?<br><br>No!按照之前font-family介绍中的匹配原则, 可能用户系统没有苹方字体, 更别说某个Medium了, 这里应该用到的是font-weight字重属性.</p>
+</blockquote>
+<p>CSS<code>font-weight</code>属性值有两种, 数值和名称, 数值为 100~900 的 9 种, 与名称大致对应.<br>很少存在一种字体有 9 个字重, 完全匹配 CSS 字重属性的 通常字体拥有的字重数量为 4~6 个, 不过 400 (normal) 和 700 (bold)基本上是必备的.</p>
+<p>没有对应字重时, 字体匹配规则如下:</p>
 <ul>
-<li>此系统是在中国大陆外的，ETS自己的系统，所以<code>My Best Scores</code>和大陆NEEA系统中的成绩不互通，用护照注册。</li>
-<li>报名地点的国家一项选择<code>American Samoa</code>，报名费只要180美金，省了一大笔啊。</li>
-<li>付费时银联卡用不了，需要用VISA或者Master信用卡支付。</li>
-<li>预约考试的<code>ProctorU</code>系统中，时区选择<code>GMT+8</code>，显示的就是中国的时间了。</li>
-<li>电脑可以是MAC，但必须用<code>Windows</code>系统。</li>
+<li>字重小于 400 的, 会先降序匹配, 找不到再升序匹配</li>
+<li>字重大于 500 的, 会先升序匹配, 找不到再降序匹配</li>
+<li>字重 400, 500 的会优先互相匹配, 再按第一条规则匹配</li>
 </ul>
-<h1 id="考试过程"><a href="#考试过程" class="headerlink" title="考试过程"></a>考试过程</h1><p>报名完后的考前准备和考试过程可以参考<a href="https://www.wulaoshi.com/archives/16551.html" target="_blank" rel="noopener">无老师的全流程介绍</a>。</p>
-<p>我在预约的考试时间登陆系统，等了一会监考员上线了。我在卧室考的，房间的东西没收拾，把桌面整理干净了，摄像头检查房间也通过了。做完了一系列检查，打开ETS考试软件，发现显示白屏。。我用的是MAC装windows系统，然后监考员转给技术支持人员，他帮我重启更新，再打开就好了。一切交流都是通过<code>ProctorU</code>对话框的，花了一小时开考。</p>
-<p>在考试过程中，对监考员是无感知的。但是有段时间我的摄像头太偏上了，她看不到我整个上半身，做阅读的时候突然开语音叫我调整一下摄像头。</p>
-<p>考完阅读和听力，中场休息10分钟，回来又检查一遍。然后打开考试系统，没响应。监考员又转给技术人员，他查了一会说我网络不好，建议重启路由器位置挪近点。我做了之后也好了，然后又花了一小时开考。</p>
-<p>考完试就出了阅读和听力的成绩，和最后的成绩一致。</p>
-<p>最后把白板擦干净，发了句Thanks，对面回了我”stay at home and keep safe, ok?” 感觉挺暖的。全程花了5小时，最后考写作时都很饿了。</p>
-<p>从考试经历看出，技术支持还是很强大的，考试过程中遇到的系统问题不用慌，求助一般都能解决。</p>
-<h1 id="备考经验"><a href="#备考经验" class="headerlink" title="备考经验"></a>备考经验</h1><p>以下是我各科的成绩，考完4个工作日收到成绩，分享下学习的经验。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200615224654.jpg" alt="托福成绩"></p>
-<h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p>阅读应该是四科中最简单的了，我做的练习也比较少，大概每周末做一次吧。备考期间坚持背单词，我一直在用<code>扇贝单词</code>。主要要熟悉的是最后一道主旨题，后来发现可以用排除法，把错误不符文意的选项和陈述部分事实的选项去掉，就是正确答案了。</p>
-<p>考试时发现难度比TPO低，有很多同义词题，句子插入题比较简单。考试中比较专心致志的做，做完还剩7、8分钟的样子，检查也没什么改的。</p>
-<h2 id="听力"><a href="#听力" class="headerlink" title="听力"></a>听力</h2><p>我听力还花了蛮多时间的，听了20多套TPO。刚开始觉得挺难的，一直做笔记，把听到的都记下来，还只有20分。然后用了<code>微臣椅听法</code>，不做笔记，只专心听，主动思考文章内容和可能会出的题，有了些进步。</p>
-<p>考试时发现还是有一些题没对，本来有点慌。后来一篇lecture是history of art，介绍一幅山水画，看着画，听的我入迷了，感觉真的在享受艺术鉴赏课，爱了爱了。最后有25分也很满意了。</p>
-<p>以后还需要再练听力方法，注意文章结构，应对细节题的办法。</p>
-<h2 id="口语"><a href="#口语" class="headerlink" title="口语"></a>口语</h2><p>口语是我准备时间最少也是最弱的一门了。考前一周才开始准备，考试时果然原形毕露。</p>
-<p>以后要练口语，拉拉分。</p>
-<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><p>写作还是有些出乎意料的，我报名了有口皆碑的<code>黎老师28写作</code>。认真听了核心录屏和直播课，课程干货满满，把全文，段与段，句与句的逻辑结构讲的很清晰，加上various句式和native词组。以前学了这么多年英语，就像没学过英语写作一样，听完课思路清晰，受益匪浅。</p>
-<p>一共练了2篇综合，3篇独立。自己练总是花很久写一篇，考试时时间紧的只能直接背。背模版加填充内容就有28了，字数也没写很多，大概综合300，独立400。独立写作要多准备教育类的话题。</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>以上就是我首次考托福的经验，托福本质上是一个语言水平的测试，在托福成绩提高的过程中，也能明显感觉到自己语言能力的提升，还是很有收获的。</p>
+<p>这也就是有时候改变 CSS 字重属性, 字体看起来却没变的原因. CSS字重属性最终还是要匹配到字体的某个字重的</p>
+<p>推荐使用 CSS 字重的数值, 而不是指定具体字重的字体, 如<code>PingFangSC-Medium</code>, 这样就可以在前面匹配一套字体集的基础上匹配字重</p>
+<table>
+<thead>
+<tr>
+<th>数值</th>
+<th>名称</th>
+<th>Helvetica Neue</th>
+<th>PingFang SC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>Thin</td>
+<td>HelveticaNeue-UltraLight</td>
+<td>PingFangSC-Ultralight</td>
+</tr>
+<tr>
+<td>200</td>
+<td>Extra Light (Ultra Light)</td>
+<td>HelveticaNeue-Thin</td>
+<td>PingFangSC-Thin</td>
+</tr>
+<tr>
+<td>300</td>
+<td>Light</td>
+<td>HelveticaNeue-Light</td>
+<td>PingFangSC-Light</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Normal</td>
+<td>HelveticaNeue-Regular</td>
+<td>PingFangSC-Regular</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Medium</td>
+<td>HelveticaNeue-Medium</td>
+<td>PingFangSC-Medium</td>
+</tr>
+<tr>
+<td>600</td>
+<td>Semi Bold (Demi Bold)</td>
+<td>-</td>
+<td>PingFangSC-Semibold</td>
+</tr>
+<tr>
+<td>700</td>
+<td>Bold</td>
+<td>HelveticaNeue-Bold</td>
+<td>-</td>
+</tr>
+<tr>
+<td>800</td>
+<td>Extra Bold (Ultra Bold)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Black (Heavy)</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<center>字重数值、名称与两款常见字体的对应关系</center>
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="https://segmentfault.com/a/1190000006110417" target="_blank" rel="noopener">如何优雅的选择字体</a><br><a href="https://keqingrong.github.io/blog/2019-06-11-font-weight" target="_blank" rel="noopener">字重</a><br><a href="https://aotu.io/notes/2016/11/08/css3fontweight/index.html" target="_blank" rel="noopener">深入了解 font-weight</a></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -205,7 +275,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#报名流程"><span class="toc-number">1.</span> <span class="toc-text">报名流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#考试过程"><span class="toc-number">2.</span> <span class="toc-text">考试过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#备考经验"><span class="toc-number">3.</span> <span class="toc-text">备考经验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#阅读"><span class="toc-number">3.1.</span> <span class="toc-text">阅读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#听力"><span class="toc-number">3.2.</span> <span class="toc-text">听力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#口语"><span class="toc-number">3.3.</span> <span class="toc-text">口语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写作"><span class="toc-number">3.4.</span> <span class="toc-text">写作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结语"><span class="toc-number">4.</span> <span class="toc-text">结语</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字体集"><span class="toc-number">1.</span> <span class="toc-text">字体集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字重"><span class="toc-number">2.</span> <span class="toc-text">字重</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                 </div>
             </div>
             
