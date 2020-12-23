@@ -7,7 +7,7 @@ tags:
     - 2020
 ---
 
-此帖记录在疫情中度过的2020。
+此帖记录在疫情中度过的2020，主要包括工作和申请两部分。
 
 `1月` 得知裁员，回家过年，基本自学完了[UC Berkley CS 61B Data Structures](https://fa20.datastructur.es/)，疫情爆发居家隔离。
 
