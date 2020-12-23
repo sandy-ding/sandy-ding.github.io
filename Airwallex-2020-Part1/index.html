@@ -5,16 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>JS中Object和Function的关系 - Sandy&#39;s Blog</title>
+    <title>Airwallex@2020 Part1 - Sandy&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="JavaScript中Object与Function的关系经常让人感到疑惑，希望本文能有助理解。
-数据类型上最新的 ECMAScript 标准定义了 8 种数据类型：
-7种原始类型：
-
-Boolea,"> 
+    <meta name="description" content="本篇来讲讲和Airwallex的缘分。
+去年，我毕业后进Yitu 996搬砖，整体氛围就是肝，同事都是工作狂。回家还刷GRE题目到凌晨1点，还是有留学的梦。期间有收到别家公司的邀请，也没想过离职，想,"> 
     <meta name="author" content="Sandy Ding"> 
     <link rel="alternative" href="atom.xml" title="Sandy&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -47,7 +44,7 @@ Boolea,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://sandy-ding.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">JS中Object和Function的关系</h3>
+        <h3 class="subtitle">Airwallex@2020 Part1</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -77,29 +74,29 @@ Boolea,">
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/前端"><b>「
-                    </b>前端<b> 」</b></a>
+                <a href="/categories/日志"><b>「
+                    </b>日志<b> 」</b></a>
                 
-                三月 26, 2020
+                十二月 23, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/Relationships-between-Object-and-Function-in-JS/" title="JS中Object和Function的关系">JS中Object和Function的关系</a>
+            <h3 class="post-title animated fadeInDown"><a href="/Airwallex-2020-Part1/" title="Airwallex@2020 Part1">Airwallex@2020 Part1</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.1k
+                    1.9k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    6 mins.
+                    3 mins.
                 </span>
                 
                 
-                <span id="/Relationships-between-Object-and-Function-in-JS/" class="leancloud_visitors" data-flag-title="JS中Object和Function的关系">
+                <span id="/Airwallex-2020-Part1/" class="leancloud_visitors" data-flag-title="Airwallex@2020 Part1">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -108,7 +105,7 @@ Boolea,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Function/">Function</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Object/">Object</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/前端/">前端</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/原型链/">原型链</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/2020/">2020</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Airwallex/">Airwallex</a></li></ul>
             
         </div>
     </div>
@@ -129,45 +126,16 @@ Boolea,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>JavaScript中<code>Object</code>与<code>Function</code>的关系经常让人感到疑惑，希望本文能有助理解。</p>
-<h1 id="数据类型上"><a href="#数据类型上" class="headerlink" title="数据类型上"></a>数据类型上</h1><p>最新的 ECMAScript 标准定义了 8 种数据类型：</p>
-<p>7种原始类型：</p>
-<ul>
-<li>Boolean</li>
-<li>Null</li>
-<li>Undefined</li>
-<li>Number</li>
-<li>BigInt</li>
-<li>String</li>
-<li>Symbol<br>和Object类型：</li>
-<li>Function</li>
-<li>Array</li>
-<li>Date</li>
-<li>RegExp</li>
-</ul>
-<p>JavaScript中除了7种基本类型以外，就是<code>Object</code>类型，它可以简单理解成“名称-值”对。从数据类型上看，而<code>Function</code>是一种特殊的<code>Object</code>类型，特点是可以用<code>()</code>来调用。</p>
-<pre><code class="JavaScript">function Foo() {
-    var a = 3; // 函数内的代码块，只能在函数内用
-}
-Foo.a = 5;   // 函数也是对象的一种，可以添加属性
-console.log(Foo.a);  // 5，作为对象的属性
-</code></pre>
-<h1 id="函数角度上"><a href="#函数角度上" class="headerlink" title="函数角度上"></a>函数角度上</h1><blockquote>
-<p><code>prototype</code>就是一个普通的对象。<code>在JavaScript中，所有的对象（除null外）最终都继承自Object.prototype</code>，它的<code>__proto__</code>就指向<code>Object.prototype</code>。<br><a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">JavaScript原型链</a></p>
-</blockquote>
-<p>由上可知，<code>Function.prototype.__proto__</code>也指向<code>Object.prototype</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327000342.jpg" alt="图片来自Hursh Jain/mollypages.org，内容有所修改"></p>
-<p>我们调用<code>new Object()</code>，生成新的对象实例，所以<code>Object</code>是一个构造函数。<code>在JavaScript中，所有函数都继承自Function</code>，都是由<code>Function</code>生成的实例，所以<code>Object.__proto__</code>指向<code>Function.prototype</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002554.jpg" alt="图片来自Hursh Jain/mollypages.org, 内容有所修改"></p>
-<h1 id="存在的先后顺序上"><a href="#存在的先后顺序上" class="headerlink" title="存在的先后顺序上"></a>存在的先后顺序上</h1><ol>
-<li>先有<code>Object.prototype</code>，它是所有对象的根源。<code>Object.prototype</code>只是挂载在<code>Object</code>函数对象上。</li>
-<li>接着<code>Function.prototype</code>继承自<code>Object.prototype</code>。<code>Function.prototype</code>只是挂载在<code>Function</code>函数对象上。</li>
-<li>所有函数，包括<code>Object</code>函数和<code>Function</code>函数继承自<code>Function.prototype</code>。</li>
-</ol>
-<h1 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h1><p><code>作为数据类型，Function是一种特殊的Object类型</code>。<br><code>从函数角度看，Object函数是Function的实例对象。Function.prototype对象是Object的实例对象。</code></p>
-<p>最后，是时候祭出JS原型链的终级图了，结合<a href="https://sandy-ding.github.io/2020/03/25/JavaScript-prototype-chain/">原型链</a>这篇，可以看看自己是否彻底掌握了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sandy-ding/imgHosting/blog/20200327002838.jpg" alt="图片来自Hursh Jain/mollypages.org"></p>
-<h1 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h1><p><a href="https://medium.com/@ivanilic/relationships-between-objects-in-js-335bdc4f402b" target="_blank" rel="noopener">Relationships between objects in JS</a><br><a href="https://stackoverflow.com/questions/54861385/is-object-a-function-in-javascript" target="_blank" rel="noopener">Is Object a function in JavaScript?</a><br><a href="https://segmentfault.com/q/1010000002736664" target="_blank" rel="noopener">js 原型的问题 Object 和 Function 到底是什么关系？</a></p>
+            <p>本篇来讲讲和<code>Airwallex</code>的缘分。</p>
+<p>去年，我毕业后进Yitu 996搬砖，整体氛围就是肝，同事都是工作狂。回家还刷GRE题目到凌晨1点，还是有留学的梦。期间有收到别家公司的邀请，也没想过离职，想稳定的干个几年。因为学霸猫接触了零极限，看了<code>富在工作</code>，其理念是只要心中默念“Aloha，对不起，请原谅，谢谢你，我爱你”，一切就会变的轻松自如，自在生长。身处996的工作中，这玩意儿真的有用么。别想这些，就先照着做吧，至少心里感觉轻松了不少。</p>
+<p>年前快放假回家过年时，director突然找我聊。直到进门前，我都不知道接下来会发生什么，以为是年前的绩效沟通。然后就告知被优化了，才工作半年？？当年前优化人员的事不再是网上的段子，而就发生在自己身上，心里五味杂陈，只能用理智告诉自己尽快接受，做出最佳应对。下午HR就找我签主动离职的协议，年终奖变成了赔偿金。</p>
+<p>过年期间在家里自学完了<a href="https://fa20.datastructur.es/" target="_blank" rel="noopener">UC Berkley CS 61B Data Structures</a>。早早回上海刷leetcode题，平均每天10题，共做了250题，面试做题基本没问题了。不想再盲目搬砖，想有更多时间准备留学，所以想找上海外企和WFH的岗位。接下来一个月开始投简历，边面试边复习前端知识。面了力扣（最早面的准备不充分），eBay（要求全栈，问了很多后端java的东西），币安（发挥不好），微软简历拒…… 外企还是坑少、要求高、薪资低。最后差不多把能投的岗位都投了，只好开始投国内大厂，如字节。</p>
+<p>最后一家外企Airwallex，看风评要求很高，精英风。先是给一周做笔试小项目，准备做的时候，HR又打电话说看过我github上之前给力扣做的笔试题，免了笔试直接来面试吧。onsite当天，久违的出门，阳光很好精神振奋，路上还帮人指路攒人品。第一轮技术面，问的都是之前面试问过，之后思考过的题目，简直对答如流。第二轮和QA聊了聊天。第三轮和VP大佬聊了些高屋建瓴的东西，他也十分尊重我的意愿，回答了我的问题。三轮面试顺利通过，3小时offer到手，竟然还是wlb最好，薪资最高，同事最nice的！</p>
+<p>当我以为又要996搬砖，或者要离开上海的时候，不敢相信这偌大的地方，竟没有我的一席之地。也沮丧的以为自己半路转行，技术薄弱，毫无意义的重复搬砖，但坚持到最后，竟又柳暗花明，惊险上岸了。已经空窗一个月，这真是我最后一个外企机会，还误打误撞进了fintech。</p>
+<p>入职同事都很nice，和Yitu完全不一样。大家会在pantry有说有笑的吃饭，各有爱好，聊很多有趣的事。hao老板，尊重我的意愿不要我加班，想做什么项目也让我选，关心我转正升职加薪。本来六个月的试用期，一个月就写邮件给kai总夸我，给我转正了。Leon是很负责的PM，提需求时总会说清楚原因，确保沟通一致，认真验收。Tina小姐姐人美心善，winjay是个技术小腿。在我看来只是正常完成工作，都会被大夸特夸。中午还有一堆饭友Violet，Olivia，小薇。</p>
+<p>我从来不过生日的人，当天也是想和平常日子一样过去。Leon发会邀讲新需求，进了会议室，发现halcen和实习生也在，屋里有几个周年庆的气球。Leon说让我们先坐，他去叫tina。我盯着电脑coding，tina拿着蛋糕进来了。我才反应过来，原来他们准备了给我过生日的惊喜，我也迟钝到了最后才反应过来。。从来没有这样和这么多人一起过生日，真是太感动幸福了。不过我还是呆头呆脑，很尬就是了。</p>
+<p>工作环境也是一流，黄浦区市中心，标配mac、显示器、升降桌、专业咖啡机。品味从内到外，优雅如一。我所在的growth team每周和大佬们开周会，了解fintech、跨境电商的domain knowledge。了解各个不同部门的人，各自的专业领域工作内容。</p>
+<p>公司每周的MeetX，会请一两个同事分享他们的人生经历。才知道身边各个卧虎藏龙，履历惊人。有上世纪就从哈佛法学院毕业的OG，回国的常春藤毕业微软PM，留学名企是标配。PM视角谈装修，RM的视角谈送礼，还有乐队贝斯手，中国通歪果仁……话题涉及如何办年会，无人区求救……真让人大开眼界，丰富经历。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -211,13 +179,6 @@ console.log(Foo.a);  // 5，作为对象的属性
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型上"><span class="toc-number">1.</span> <span class="toc-text">数据类型上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数角度上"><span class="toc-number">2.</span> <span class="toc-text">函数角度上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#存在的先后顺序上"><span class="toc-number">3.</span> <span class="toc-text">存在的先后顺序上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结论："><span class="toc-number">4.</span> <span class="toc-text">结论：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接："><span class="toc-number">5.</span> <span class="toc-text">参考链接：</span></a></li></ol>
-                </div>
-            </div>
             
             
         </div>
